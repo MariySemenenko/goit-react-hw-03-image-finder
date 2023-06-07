@@ -1,9 +1,11 @@
-import { getImages } from 'pixabay/pixabay';
+import { getImages } from '../pixabay/pixabay';
 import { Component } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem';
-import { Loader } from './Loader/Loader'
+import { Loader } from './Loader/Loader';
+import { Modal } from './Modal/Modal';
+import { Button } from './Button/Button';
 
 export class App extends Component {
   state = {
@@ -25,9 +27,6 @@ export class App extends Component {
       this.getPhotos(query, page);
     }
   }
-  // componentDidMount() {
-  //   this.getPhotos('cat', 1)
-  // }
 
   getPhotos = async (query, page) => {
     if (!query) {
@@ -64,7 +63,7 @@ export class App extends Component {
     });
   };
 
-//закрити модалку
+  //закрити модалку
   closeModal = () => {
     this.setState({
       showModal: false,
@@ -73,23 +72,37 @@ export class App extends Component {
     });
   };
 
-  render() {
-    const { images, showModal } = this.state;
-    console.log(this.state);
+  onLoadMore = () => {
+    this.setState(prevState => ({page: prevState.page +1}))
+  }
 
+  render() {
+    const { images, showModal, isLoading, total, error, tags, largeImage } =
+      this.state;
+    console.log(this.state);
+    const AllPage = total / images.length;
     return (
       <>
-        <Searchbar onHandleSubmit={this.onHandleSubmit} />
-        {images.length > 0 && <ImageGallery images={images} toggleModal={this.toggleModal}/>}
+        <Searchbar onSubmit={this.onHandleSubmit} />
+        {error && <p>Додайте пошук</p>}
+        {images.length > 0 && (
+          <ImageGallery images={images} toggleModal={this.toggleModal} />
+        )}
 
-        <ImageGalleryItem/>
+        {/* <ImageGalleryItem /> */}
+        {showModal && (
+          <Modal
+            onClouse={this.closeModal}
+            tags={tags}
+            largeImage={largeImage}
+          />
+        )}
 
-        
-          
-        {/* {isLoading ? <Loader /> : <p>Завантаження завершено</p> } */}
+        {isLoading && <Loader />}
+        {AllPage > 1 && !isLoading && images.length > 0 && (
+          <Button onClick={this.onLoadMore} />
+        )}
       </>
     );
   }
 }
-
-

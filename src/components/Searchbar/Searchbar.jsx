@@ -25,7 +25,7 @@ export class Searchbar extends Component {
   render() {
     return (
       <>
-        <form value={query} onSubmit={this.handleSubmit} type="text">
+        <form onSubmit={this.handleSubmit}>
           <input value={this.state.query} onChange={this.handleChange} />
           <button type="submit">Search</button>
         </form>

@@ -1,5 +1,4 @@
 
-
 import { createPortal } from 'react-dom';
 import { Component } from 'react';
 
@@ -30,11 +29,11 @@ export class Modal extends Component {
     render() {
         const {largeImage, tags} = this.props
         return createPortal(
-            <Overlay onClick={this.handleBackdropClose}>
-                <ModalDiv>
+            <overlay onClick={this.handleBackdropClose}>
+                <div>
                     <img src={largeImage} alt={tags}/>
-                </ModalDiv>
-            </Overlay>,
+                </div>
+            </overlay>,
             modalRoot
         )
     }
