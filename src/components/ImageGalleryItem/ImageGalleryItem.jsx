@@ -1,4 +1,13 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+
+export const ImageGalleryItem = () => {
+    return (
+
+        <>
+        
+        </>
+    )
+}
 
 
 
@@ -7,9 +16,7 @@ import PropTypes from 'prop-types';
 
 
 
-
-
-ImageGalleryItem.propTypes = {
+// ImageGalleryItem.propTypes = {
    
     
-}
+// }
