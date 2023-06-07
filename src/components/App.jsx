@@ -2,7 +2,8 @@ import { getImages } from 'pixabay/pixabay';
 import { Component } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
-import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem'
+import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem';
+import { Loader } from './Loader/Loader'
 
 export class App extends Component {
   state = {
@@ -54,14 +55,38 @@ export class App extends Component {
     this.setState({ query, page: 1, images: [] });
   };
 
+  //показати модалку
+  toggleModal = (largeImage, tags) => {
+    this.setState({
+      showModal: true,
+      largeImage,
+      tags,
+    });
+  };
+
+//закрити модалку
+  closeModal = () => {
+    this.setState({
+      showModal: false,
+      largeImage: '',
+      tags: '',
+    });
+  };
+
   render() {
+    const { images, showModal } = this.state;
     console.log(this.state);
+
     return (
       <>
         <Searchbar onHandleSubmit={this.onHandleSubmit} />
-        <ImageGallery images={images} toggleModal={this.toggleModal}/>
-          <ImageGalleryItem/>
-       
+        {images.length > 0 && <ImageGallery images={images} toggleModal={this.toggleModal}/>}
+
+        <ImageGalleryItem/>
+
+        
+          
+        {/* {isLoading ? <Loader /> : <p>Завантаження завершено</p> } */}
       </>
     );
   }

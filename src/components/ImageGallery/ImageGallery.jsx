@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 
 
-//ImageGallery відображення списку зображень images
-//ImageGalleryItem це кожне зобрання дочірнє
 
+//тут рендериться список зображень масиву
+//webformatURL, tags, largeImageURL і toggleModal це властивості img
 export const ImageGallery = ({ images, toggleModal }) => {
 
     return (
         <ul>
              {images.map(({id, webformatURL, tags, largeImageURL }) => (
-             <ImageGalleryItem 
+             <img 
              key={id} 
              webformatURL={webformatURL} 
              tags={tags}
