@@ -1,7 +1,8 @@
-// import PropTypes from 'prop-types';
+ import PropTypes from 'prop-types';
 
 
 export const ImageGalleryItem = ({
+  
   webformatURL,
   tags,
   toggleModal,
@@ -16,6 +17,10 @@ export const ImageGalleryItem = ({
   );
 };
 
-// ImageGalleryItem.propTypes = {
+ImageGalleryItem.propTypes = {
+  webformatURL: PropTypes.string.isRequired,
+  tags: PropTypes.string.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+}
 
-// }

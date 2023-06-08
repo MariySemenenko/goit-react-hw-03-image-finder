@@ -15,6 +15,7 @@ export class Searchbar extends Component {
 
   //на сабміті форми перевіряю чи запит не є порожнім рядком
   handleSubmit = e => {
+   
     e.preventDefault();
     if (this.state.query.trim() === '') {
       return alert('не можна зробити запит');
@@ -35,5 +36,5 @@ export class Searchbar extends Component {
 }
 
 Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onHandleSubmit: PropTypes.func.isRequired,
 };

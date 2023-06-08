@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-
+//кнопка для загрузки сторінок
 export const Button = ({ onClick }) => {
   return (
     <>

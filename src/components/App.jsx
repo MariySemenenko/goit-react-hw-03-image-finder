@@ -2,7 +2,6 @@ import { getImages } from '../pixabay/pixabay';
 import { Component } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
-import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem';
 import { Loader } from './Loader/Loader';
 import { Modal } from './Modal/Modal';
 import { Button } from './Button/Button';
@@ -51,11 +50,12 @@ export class App extends Component {
   };
 
   onHandleSubmit = query => {
+   
     this.setState({ query, page: 1, images: [] });
   };
 
   //показати модалку
-  toggleModal = (largeImage, tags) => {
+  openModal = (largeImage, tags) => {
     this.setState({
       showModal: true,
       largeImage,
@@ -79,17 +79,17 @@ export class App extends Component {
   render() {
     const { images, showModal, isLoading, total, error, tags, largeImage } =
       this.state;
-    console.log(this.state);
+   
     const AllPage = total / images.length;
     return (
       <>
-        <Searchbar onSubmit={this.onHandleSubmit} />
-        {error && <p>Додайте пошук</p>}
+        <Searchbar onHandleSubmit={this.onHandleSubmit} />
+        {error && <p>Щось пішло не так</p>}
         {images.length > 0 && (
-          <ImageGallery images={images} toggleModal={this.toggleModal} />
+          <ImageGallery images={images} openModal={this.openModal} />
         )}
 
-        {/* <ImageGalleryItem /> */}
+      
         {showModal && (
           <Modal
             onClouse={this.closeModal}
