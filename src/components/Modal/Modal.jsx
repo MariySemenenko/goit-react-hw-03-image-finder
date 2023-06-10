@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { Component } from 'react';
-import s from './Modal.module.css'
+import { Div, Large } from '../Styled.imafeFinder'
+
 const modalRoot = document.querySelector('#modal-root');
 
 export class Modal extends Component {
@@ -30,11 +31,11 @@ export class Modal extends Component {
         const {largeImage, tags} = this.props
         console.log(this.props)
         return createPortal(//відображаю модальне вікно
-            <div className={s.Overlay} onClick={this.handleBackdropClose}>
-                <div className={s.Modal}>
+            <Div onClick={this.handleBackdropClose}>
+                <Large>
                     <img src={largeImage} alt={tags}/>
-                </div>
-            </div>,
+                </Large>
+            </Div>,
             modalRoot
         )
     }

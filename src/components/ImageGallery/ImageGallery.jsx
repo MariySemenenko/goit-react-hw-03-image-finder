@@ -1,6 +1,6 @@
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import PropTypes from 'prop-types';
-
+import { Ul } from '../Styled.imafeFinder'
 
 
 //тут рендериться список зображень масиву
@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 export const ImageGallery = ({ images, openModal }) => {
 
     return (
-        <ul>
+        <Ul>
              {images.map(({id, webformatURL, tags, largeImageURL }) => (
                 
              <ImageGalleryItem
@@ -20,7 +20,7 @@ export const ImageGallery = ({ images, openModal }) => {
              
              />
              ))}
-        </ul>
+        </Ul>
     )
 }
 

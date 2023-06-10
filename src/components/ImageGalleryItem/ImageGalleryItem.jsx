@@ -1,4 +1,5 @@
  import PropTypes from 'prop-types';
+ import { Img } from '../Styled.imafeFinder'
 
 
 export const ImageGalleryItem = ({
@@ -11,7 +12,7 @@ export const ImageGalleryItem = ({
   return (
     <>
       <li onClick={() => toggleModal(largeImageURL, tags)}>
-        <img src={webformatURL} alt={tags} />
+        <Img src={webformatURL} alt={tags} />
       </li>
     </>
   );

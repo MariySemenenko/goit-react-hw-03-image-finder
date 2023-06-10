@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Form, Button } from '../Styled.imafeFinder'
 
 //тут вводю запит користувача
 
@@ -26,10 +27,10 @@ export class Searchbar extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           <input value={this.state.query} onChange={this.handleChange} />
-          <button type="submit">Search</button>
-        </form>
+          <Button type="submit">Search</Button>
+        </Form>
       </>
     );
   }
