@@ -50,7 +50,6 @@ export class App extends Component {
   };
 
   onHandleSubmit = query => {
-   
     this.setState({ query, page: 1, images: [] });
   };
 
@@ -73,13 +72,13 @@ export class App extends Component {
   };
 
   onLoadMore = () => {
-    this.setState(prevState => ({page: prevState.page +1}))
-  }
+    this.setState(prevState => ({ page: prevState.page + 1 }));
+  };
 
   render() {
     const { images, showModal, isLoading, total, error, tags, largeImage } =
       this.state;
-   
+
     const AllPage = total / images.length;
     return (
       <>
@@ -89,7 +88,6 @@ export class App extends Component {
           <ImageGallery images={images} openModal={this.openModal} />
         )}
 
-      
         {showModal && (
           <Modal
             onClouse={this.closeModal}

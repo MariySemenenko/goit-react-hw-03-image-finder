@@ -1,9 +1,7 @@
- import PropTypes from 'prop-types';
- import { Img } from '../Styled.imafeFinder'
-
+import PropTypes from 'prop-types';
+import { Img } from '../Styled.imafeFinder';
 
 export const ImageGalleryItem = ({
-  
   webformatURL,
   tags,
   toggleModal,
@@ -23,5 +21,4 @@ ImageGalleryItem.propTypes = {
   tags: PropTypes.string.isRequired,
   toggleModal: PropTypes.func.isRequired,
   largeImageURL: PropTypes.string.isRequired,
-}
-
+};
