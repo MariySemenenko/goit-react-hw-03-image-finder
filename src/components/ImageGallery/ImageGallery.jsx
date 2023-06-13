@@ -32,6 +32,3 @@ ImageGallery.propTypes = {
   openModal: PropTypes.func.isRequired,
 };
 
-// ImageGallery.propTypes = {
-//     :PropTypes.
-// }
